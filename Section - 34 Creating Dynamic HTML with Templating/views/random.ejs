@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random</title>
+    </head>
+    <body>
+        <h1> Your Random Number is : <%= rand %> </h1> <!--This will be rendered-->
+
+        <% if (rand % 2 ===0 ) { %>  <!--This will NOT be rendered-->
+            <h2>This is an EVEN Number</h2>
+        <% } else {%>
+            <h2>This is an ODD Number</h2>
+        <% } %>
+
+        <h3> <%= rand%2 === 0 ? 'EVEN' : 'ODD' %> </h3>
+        
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comments Page</title>
+    </head>
+    <body>
+        <h1>Here are all the comments</h1>
+        <div>
+            <ul>
+                <% for(let c of comments) { %>
+                    <li> 
+                        <%= c.comment %> - <%= c.username %> 
+                        <a href="/comments/<%=c.id%>">Details</a>
+                    </li>
+                <% } %>
+            </ul>
+            <a href="/comments/new">Add New Comment!</a>
+        </div>
+    </body>
+</html>

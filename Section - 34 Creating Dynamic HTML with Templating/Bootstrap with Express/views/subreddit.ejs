@@ -1,0 +1,25 @@
+<%- include('./partials/head.ejs') %>
+
+<%- include('./partials/navbar.ejs') %>
+
+    <h1>Browsing the <%= name %> subreddit </h1> 
+    <!--The inside part is treated as JS instead of HTML using EJS-->
+    
+    <h2> <%= description %> </h2>
+
+    <p> <%= subscribers %> </p>
+    <hr>
+    
+    <% for(let post of posts) { %>
+        <article>
+            <h3> <%= post.title %> - <b> <%= post.author %> </b> </h3>
+        </article>
+
+        <% if(post.img) { %>
+            <img src=" <%= post.img %> " alt=""> 
+            <!--Having alt = "" means we are telling the screenreader to skip it-->>
+        <% } %>
+
+    <% } %>
+
+<%- include('./partials/footer.ejs') %>

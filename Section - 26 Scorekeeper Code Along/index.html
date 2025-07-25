@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!---Custom Stylesheet-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+        <link rel="stylesheet" href="app.css">
+
+        <title>My Score Keeper</title>
+        
+        <style>
+            .winner {
+                color: green;
+            }
+            .loser {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <section>
+                <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3784&q=80">
+            </section>
+            <section>
+                <h2>Ping Pong Score Keeper</h2>
+            </section>
+            <section>
+                <h1> <span id="player1_display">0</span> to <span id="player2_display">0</span> </h1>
+                <h3>Use the buttons below to keep score</h3>
+
+                Playing to 
+                    <select id="winningScore">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                
+
+            </section>
+            <section>
+                <button id="player1_button"> +1 Player One </button>
+                <button id="player2_button"> +1 Player Two </button>
+                <button id="reset"> Reset </button>
+            </section>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
