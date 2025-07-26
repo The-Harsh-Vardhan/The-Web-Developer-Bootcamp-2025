@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const AppError = require('./AppError');
 
 app.use(morgan('common'));
 //On every single request, use this middleware called morgan
@@ -72,14 +73,24 @@ app.get('/secret', verifyPassword, (req, res) => { //Using verify password only 
 });
 
 //Custom Error Handler Middleware
-app.use((err, req, res, next) => {
-    console.log("********************************************");
-    console.log("********************ERROR*******************");
-    console.log("********************************************");
-    console.log(err);
-    console.error(err.stack);
-    res.status(500).send('Something Broke!!');
-    next(err); //This is going to call the next error handling middleware!
+// app.use((err, req, res, next) => {
+//     console.log("********************************************");
+//     console.log("********************ERROR*******************");
+//     console.log("********************************************");
+//     console.log(err);
+//     console.error(err.stack);
+//     res.status(500).send('Something Broke!!');
+//     next(err); //This is going to call the next error handling middleware!
+// });
+
+app.use( (err, req, res, next) => {
+const { status = 500 , message = "Something went Wrong!"} = err;
+    //giving default value of 500 to status while destructuring
+    res.status(status).send(message);
+})
+
+app.use('/admin', (req, res) => {
+    throw new AppError('You are not an Admin', 403);
 });
 
 app.use((req, res) => { //Any Request, Any Verb
